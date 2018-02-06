@@ -15,7 +15,6 @@ from inpatientbill import p
 from medicinal import Medicinal
 from appointment import Appointment
 # from passlib.hash import sha256_crypt #need to pip install passlib on the command prompt
-
 cred = credentials.Certificate('cred/stop-78245-firebase-adminsdk-jqcbt-d793e7c23d.json')
 default_app = firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://stop-78245.firebaseio.com/'
