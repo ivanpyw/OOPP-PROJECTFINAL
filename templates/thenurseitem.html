@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {% from "includes/_formhelper.html" import render_field %}
+    <h1>Welcome, Staff ID: {{ session['staffid'] }}</h1>
+<table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Product name</th>
+            <th>Price</th>
+
+
+        </tr>
+        </thead>
+
+        <tbody>
+                {% for itemsp in nurseitem %}
+
+		<tr>
+			<td>{{ itemsp.get_id() }}  </td>
+            <td>{{ itemsp.get_productName() }}  </td>
+            <td>{{ itemsp.get_unitPrice() }}</td>
+
+		</tr>
+              </tbody>
+
+{%  endfor %}
+{##}
+{##}
+</table>
+{#    <p>Patient NRIC</p>#}
+{#    <input type="text" id="nric">#}
+{#    <p>Med ID</p>#}
+{#    <input type="text" id="medid">#}
+{#    <p>Quantity</p>#}
+{#    <select>#}
+{#    <option id="1">1</option>#}
+{#    <option id="2">2</option>#}
+{#    </select>#}
+
+
+
+
+{#    <p>Quantity: </p>#}
+
+{#    <input type="text" id= "quantity" name="quantity">#}
+
+{#    <label style="margin-left: 1130px;" id="tamount"></label>#}
+
+
+{#    <form method="POST" action ="">#}
+{#          <div class="form-group">#}
+{#            <div class="form-row">#}
+{#                {{ render_field(form.productu, class_="form-control") }}#}
+{#            </div>#}
+{#          </div>#}
+{#        <p>is it possible to retrieve firebase data and put it in selectfield?</p>#}
+{#          <div class="form-group">#}
+{#            <div class="form-row">#}
+{#                {{ render_field(form.nric, class_="form-control") }}#}
+{#            </div>#}
+{#          </div>#}
+{#        <p>will calculate the user input with the "price" data in "productDesc".</p>#}
+{#          <div class="form-group">#}
+{#            <div class="form-row">#}
+{#                {{ render_field(form.quantity, class_="form-control") }}#}
+{#            </div>#}
+{#          </div>#}
+{##}
+{##}
+{##}
+{#    </form>#}
+
+{#                <div class="form-group col-md-1">#}
+
+{#                    <input type="submit" value="Submit" class="btn btn-info"/>#}
+    <a href="/bill"><u>Add bills for patient</u></a>
+    <br>
+    <br>
+{#                </div>#}
+
+{% endblock %}
+
+
+
+{#{% extends 'layout.html' %}#}
+{##}
+{#{% block body %}#}
+{##}
+{#    {% from "includes/_formhelper.html" import render_field %}#}
+{#    <h1>Welcome, Staff ID: {{ session['staffid'] }} </h1>#}
+{##}
+{#<table class="table table-bordered">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th>List of items</th>#}
+{#            <th>Unit Price</th>#}
+{#            <th>Quantity</th>#}
+{##}
+{##}
+{#        </tr>#}
+{#        </thead>#}
+{##}
+{#        <tbody>#}
+{#                {% for product in listnp %}#}
+{#                <tr>#}
+{#                <td><input type="checkbox" name="loi" id="loi" value="loi" onclick="checkedP()">  {{ product.get_product() }}</td>  {#I HAVE NO IDEA WHY THEY ARE ALL MIXED UP  #}
+{#                <td>{{ product.set_quantity() }}</td>  {#I HAVE NO IDEA WHY THEY ARE ALL MIXED UP  #}
+{##}
+{#                    <td>{{ product.get_product() }}</td>#}
+{##}
+{#                    <td> $ {{ product.get_price()}}</td>  {#I HAVE NO IDEA WHY THEY ARE ALL MIXED UP  #}
+{#                    <td><input type="text" id= {{ product.get_product() }}name="quantity"></td>#}
+{##}
+{#                <td>{{ ride.get_date() }}</td> {#I HAVE NO IDEA WHY THEY ARE ALL MIXED UP  #}
+{#                <td><a href="/ridedetails/{{ride.get_pubid()}}">Ride Details</a></td> {#I HAVE NO IDEA WHY THEY ARE ALL MIXED UP  #}
+{##}
+{#                </tr>#}
+{#              </tbody>#}
+{#{%  endfor %}#}
+{##}
+{##}
+{#</table>#}
+{##}
+{##}
+{#    <p>Quantity: </p>#}
+{##}
+{#    <input type="text" id= "quantity" name="quantity">#}
+{##}
+{#    <label style="margin-left: 1130px;" id="tamount"></label>#}
+{#    <br>#}
+{#    <br>#}
+{#                <div class="form-group col-md-1">#}
+{#                    <input type="submit" value="Add" class="btn btn-info"/>#}
+{#                </div>#}
+{##}
+{#{% endblock %}#}
+
+
+
+
+

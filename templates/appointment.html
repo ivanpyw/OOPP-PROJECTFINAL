@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+
+     <div>
+     {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                    {% for error in field_errors %}
+                        <li>{{ form[field_name].label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+      </div>
+    {% endif %}
+
+     <form method="POST" action="">
+
+    <div class="jumbotron text-center">
+        <h1>Make your appointment now !</h1>
+        <h3>Welcome to the appointment page.</h3>
+            <p class="lead"></p>
+
+
+    </div>
+   <div>
+
+       <p>What date do you want your appointment to be ?</p>
+        {{ render_field(form.date, class_="form-control") }}
+
+       <p>What time do you want your appointment to be ?</p>
+         {{ render_field(form.timee, class_="form-control") }}
+
+   </div>
+
+   <br><br>
+   <button type="submit" value="Submit">Submit</button>
+
+        <br><br>
+
+         <a href="aftappt">View all appointments>></a>
+
+
+    </form>
+
+{% endblock %}

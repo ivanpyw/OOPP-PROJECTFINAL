@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {% from "includes/_formhelper.html" import render_field %}
+    <h1>Welcome, {{ session['nric'].upper() }} !</h1>
+    <a href="/viewItems">View your bills</a><br>
+    <a href="/newsymptoms">A&E registration</a><br>
+    <a href="/appointment">Appointment</a><br>
+    <a href="/wardamission">Ward Admission</a><br>
+    <a href="/request_help">Request</a>
+
+
+
+
+
+{% endblock %}

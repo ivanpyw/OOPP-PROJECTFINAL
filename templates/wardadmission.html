@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+{#    <h1>Please select your symptoms</h1>#}
+    <h1>Patient Ward Admission</h1>
+    <script>
+        $(document).ready(function () {
+            $('#a').show();
+            $('#b').hide();
+            $('#c').hide();
+
+
+            $('input[type="radio"]').click(function () {
+
+                if ($(this).attr('value') == 'A') {
+                    $('#a').show();
+                    $('#b').hide();
+                    $('#c').hide();
+                }
+
+                else if ($(this).attr('value') == 'B') {
+                    $('#a').hide();
+                    $('#b').show();
+                    $('#c').hide();
+                }
+
+                else if ($(this).attr('value') == 'C') {
+                    $('#a').hide();
+                    $('#b').hide();
+                    $('#c').show();
+                }
+
+            });
+
+<!--allergies-->
+
+            var wardchosen = $('input[name=ward]:checked').val();
+
+            if (wardchosen == 'A') {
+                    $('#a').show();
+                    $('#b').hide();
+                    $('#c').hide();
+            }
+
+            else if ($(this).attr('value') == 'B') {
+                    $('#a').show();
+                    $('#b').show();
+                    $('#c').hide();
+                }
+
+            else if ($(this).attr('value') == 'C') {
+                    $('#a').hide();
+                    $('#b').hide();
+                    $('#c').show();
+                }
+
+        });
+    </script>
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                    {% for error in field_errors %}
+                        <li>{{ form[field_name].label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+
+
+    <form method="post">
+
+        <div class="form-group">
+            <div class="form-row">
+
+                {{ render_field(form.ward, class_="radio-inline") }}
+            </div>
+        </div>
+
+
+          <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ render_field(form.name, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ render_field(form.number, class_="form-control") }}
+
+                </div>
+{#                <div class="form-group col-md-4">#}
+{#                    {{ render_field(form.sallergies, class_="form-control") }}#}
+{#                </div>#}
+
+            </div>
+        </div>
+
+        <div id="a">
+          <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ render_field(form.aroom, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-6">
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+        <div id="b">
+          <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ render_field(form.broom, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-6">
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+        <div id="c">
+          <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ render_field(form.croom, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-6">
+
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-11">
+
+
+                </div>
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Submit" class="btn btn-info"/>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock %}

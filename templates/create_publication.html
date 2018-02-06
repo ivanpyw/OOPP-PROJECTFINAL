@@ -1,0 +1,181 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+{#    <h1>Please select your symptoms</h1>#}
+    <p>if you have a non-emergency condition and visit a GP instead,
+        you’ll probably get treated sooner</p>
+    <script>
+        $(document).ready(function () {
+            $('#cpap').show();
+{#            $('#ap').hide();#}
+            $('#fr').hide();
+            $('#br').hide();
+
+
+            $('input[type="radio"]').click(function () {
+
+                if ($(this).attr('value') == 'scp') {
+                    $('#cpap').show();
+{#                    $('#ap').hide();#}
+                    $('#fr').hide();
+                    $('#br').hide();
+                }
+
+                else if ($(this).attr('value') == 'sap') {
+                    $('#cpap').show();
+{#                    $('#ap').show();#}
+                    $('#fr').hide();
+                    $('#br').hide();
+                }
+
+                else if ($(this).attr('value') == 'sfr') {
+                    $('#cpap').hide();
+{#                    $('#ap').hide();#}
+                    $('#fr').show();
+                    $('#br').hide();
+                }
+
+                else if ($(this).attr('value') == 'sbr') {
+                    $('#cpap').hide();
+{#                    $('#ap').hide();#}
+                    $('#fr').hide();
+                    $('#br').show();
+                }
+
+            });
+
+<!--allergies-->
+
+            var publicationType = $('input[name=symptype]:checked').val();
+
+            if (publicationType == 'scp') {
+                    $('#cpap').show();
+{#                    $('#ap').hide();#}
+                    $('#fr').hide();
+                    $('#br').hide();
+            }
+
+            else if ($(this).attr('value') == 'sap') {
+                    $('#cpap').show();
+{#                    $('#ap').show();#}
+                    $('#fr').hide();
+                    $('#br').hide();
+                }
+
+            else if ($(this).attr('value') == 'sfr') {
+                    $('#cpap').hide();
+{#                    $('#ap').hide();#}
+                    $('#fr').show();
+                    $('#br').hide();
+                }
+
+            else if ($(this).attr('value') == 'sbr') {
+                    $('#cpap').hide();
+{#                    $('#ap').hide();#}
+                    $('#fr').show();
+                    $('#br').hide();
+            }
+        });
+    </script>
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                    {% for error in field_errors %}
+                        <li>{{ form[field_name].label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+{#      <form action="/viewsymptom" method="POST">#}
+    <form method="post">
+
+        <div class="form-group">
+            <div class="form-row">
+
+                {{ render_field(form.symptype, class_="radio-inline") }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    {{ render_field(form.travel, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-3">
+                    {{ render_field(form.allergies, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ render_field(form.sallergies, class_="form-control") }}
+                </div>
+
+            </div>
+        </div>
+
+        <div id="cpap">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    {{ render_field(form.rate, class_="form-control") }}
+{#                        {% for subfield in form.rate %}#}
+{#                            <tr>#}
+{#                                <td>{{ subfield }}</td>#}
+{#                                <td>{{ subfield.label }}</td>#}
+{#                            </tr>#}
+{#                        {% endfor %}#}
+                    </div>
+                    <div class="form-group col-md-8">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="fr">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    {{ render_field(form.othersymptoms, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-8">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+            <div id="br">
+                <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    {{ render_field(form.hist, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-8">
+
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-11">
+
+
+                </div>
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Submit" class="btn btn-info"/>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+
+
+        <h1>Patient List</h1>
+    <table class="table table-bordered " style="margin-bottom: 100px; margin-top:100px; border-radius:1px">
+
+    <thead>
+		<tr>
+			<th>NRIC</th>
+{#			<th>Symptom</th>#}
+{#			<th>Rate of Pain</th>#}
+{#			<th>Additional Symptoms</th>#}
+{#            <th>Travelled?</th>#}
+            <th>Allergy </th>
+            <th>Symptom</th>
+
+{#            <th>Travelled?</th>#}
+
+		</tr>
+	</thead>
+
+    <tbody>
+    {% for chestpain in listofsymptoms %}
+
+		<tr>
+			<td> {{ chestpain.get_nric() }} </td>
+{#            <td>{{ chestpain.get_type()}} </td>#}
+{#            <td>{{ chestpain.get_pain_rate }}</td>#}
+{#            <td>{{ chestpain.get_allergy }}</td>#}
+            <td>{{ chestpain.get_specify() }}</td>
+            <td>{{ chestpain.get_travel() }}</td>
+
+
+		</tr>{% endfor %}
+
+    {% for abdopain in Symptoms %}
+        <tr>
+			<td> {{ abdopain.get_nric() }} </td>
+{#            <td>{{ abdopain.get_type()}} </td>#}
+{#            <td>{{ abdopain.get_pain_rate() }}</td>#}
+{#            <td>{{ abdopain.get_allergy() }}</td>#}
+            <td>{{ abdopain.get_specify() }}</td>
+            <td>{{ abdopain.get_travel() }}</td>
+
+		</tr>
+    {% endfor %}
+
+    {% for breath in Symptoms %}
+
+        <tr>
+			<td> {{ breath.get_nric() }} </td>
+{#            <td>{{ breath.get_type()}} </td>#}
+{#            <td>{{ breath.get_pain_rate() }}</td>#}
+{#            <td>{{ breath.get_allergy() }}</td>#}
+            <td>{{ breath.get_specify() }}</td>
+            <td>{{ breath.get_travel() }}</td>
+
+
+		</tr>
+    {% endfor %}
+
+    {%for fever in Symptoms %}
+
+        <tr>
+			<td> {{ fever.get_nric() }} </td>
+{#            <td>{{ fever.get_type()}} </td>#}
+{#            <td>{{ fever.get_pain_rate() }}</td>#}
+{#            <td>{{ fever.get_allergy() }}</td>#}
+            <td>{{ fever.get_specify() }}</td>
+            <td>{{ fever.get_travel() }}</td>
+
+		</tr>
+    {% endfor %}
+
+
+
+	</tbody>
+
+</table>
+{#<script>#}
+{#     var time = new Date().getTime();#}
+{#     $(document.body).bind("mousemove keypress", function(e) {#}
+{#         time = new Date().getTime();#}
+{#     });#}
+{##}
+{#     function refresh() {#}
+{#         if(new Date().getTime() - time >= 5000)#}
+{#             window.location.reload(true);#}
+{#         else#}
+{#             setTimeout(refresh, 5000);#}
+{#     }#}
+{##}
+{#     setTimeout(refresh, 5000);#}
+{#</script>#}
+{% endblock %}
+
+

@@ -1,0 +1,88 @@
+{#{% extends 'layout.html' %}#}
+{##}
+{#{% block body %}#}
+{#    <div>#}
+{#        <table class="table table-bordered">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th>Product name</th>#}
+{#            <th>Quantity</th>#}
+{#            <th>Price</th>#}
+{##}
+{#        </tr>#}
+{#        </thead>#}
+{##}
+{#        <tbody>#}
+{#                {% for product in listofp %}#}
+{#                <tr>#}
+{#                <td>{{ product.get_product() }}</td>#}
+{#                <td>{{ product.get_quantity() }}</td>#}
+{#                <td>{{ product.get_price()}}</td>#}
+{#                <td>{{ ride.get_date() }}</td>
+{#                <td><a href="/ridedetails/{{ride.get_pubid()}}">Ride Details</a></td> {#I HAVE NO IDEA WHY THEY ARE ALL MIXED UP  #}
+{#                {%  endfor %}#}
+{#                </tr>#}
+{#              </tbody>#}
+{#        </table>#}
+{#    </div>#}
+{#    {% from "includes/_formhelper.html" import render_field %}#}
+{##}
+{#    {% if form.errors %}#}
+{#        <div class="alert alert-danger">#}
+{#            <ul>#}
+{#                {% for field_name, field_errors in form.errors|dictsort if field_errors %}#}
+{#                    {% for error in field_errors %}#}
+{#                        <li>{{ form[field_name].label }}: {{ error }}</li>#}
+{#                    {% endfor %}#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{#    {% endif %}#}
+{##}
+{##}
+{#{% endblock %}#}
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {% from "includes/_formhelper.html" import render_field %}
+{#      {% if form.errors %}#}
+{#        <div class="alert alert-danger">#}
+{#            <ul>#}
+{#                {% for field_name, field_errors in form.errors|dictsort if field_errors %}#}
+{#                    {% for error in field_errors %}#}
+{#                        <li>{{ form[field_name].label }}: {{ error }}</li>#}
+{#                    {% endfor %}#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+    <form method="POST">
+
+        <div class="form-group">
+            <div class="form-row">
+                {{ render_field(form.nric, class_="form-control") }}
+                {{ render_field(form.productu, class_="form-control") }}
+                {{ render_field(form.quantity, class_="form-control") }}
+            </div>
+        </div>
+
+         <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-11">
+
+
+                </div>
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Submit" class="btn btn-info"/>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+{% endblock %}

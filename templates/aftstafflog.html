@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {% from "includes/_formhelper.html" import render_field %}
+    <h1>Welcome, {{ session['staffid'].upper() }} !</h1>
+    <a href="/thenurseitem">Medcine List</a><br>
+    <a href="/medicine">Add new Medicine</a><br>
+    <a href="/wardpatients">View Ward Patients</a><br>
+    <a href="/viewsymptoms">View Symptoms</a><br>
+    <a href="/viewrequest">View Request</a>
+
+
+
+
+{% endblock %}

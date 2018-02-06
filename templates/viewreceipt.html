@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<table class="table table-bordered">
+
+    <thead>
+		<tr>
+			<th>Product ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+
+		</tr>
+	</thead>
+	<tbody>
+        <tr>
+            <td>OT001</td>
+            <td>Cotton Bud</td>
+            <td>1</td>
+            <td>$ 2.50</td>
+		</tr>
+		<tr>
+            <td>C2345</td>
+            <td>Benzonatate(4 capsules, 100mg)</td>
+            <td>1</td>
+            <td>$ 10.00</td>
+		</tr>
+        <tr>
+            <td>T1267</td>
+            <td>Prednisone</td>
+            <td>1</td>
+            <td>$ 5.00</td>
+		</tr>
+        <tr>
+            <td>F2368</td>
+            <td>Coricidin(20 CT)</td>
+            <td>1</td>
+            <td>$ 5.70</td>
+		</tr>
+        <tr>
+            <td>F1122</td>
+            <td>Tamiflu(10 capsules)</td>
+            <td>1</td>
+            <td>$ 139.15</td>
+		</tr>
+
+	</tbody>
+
+
+</table>
+    <p>Amount: $162.35</p>
+<table class="table table-bordered">
+    <thead>
+		<tr>
+			<th>Ward Class</th>
+            <th>No. of days</th>
+		</tr>
+	</thead>
+    <tbody>
+        <tr>
+            <td>B</td>
+            <td>3</td>
+    </tbody>
+
+</table>
+ <p>Amount: $237 </p>
+    <p>Total Amount: $ 399.35</p>
+
+
+{% endblock %}

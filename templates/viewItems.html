@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Medicine Taken</h1>
+<table class="table table-bordered">
+
+    <thead>
+		<tr>
+			<th>Product ID</th>
+            <th>Quantity</th>
+{#			<th>Unit Price</th>#}
+
+{#			<th><h1>Location</h1></th>#}
+{#            <th>Delete/Completed</th>#}
+		</tr>
+	</thead>
+	<tbody>
+    {% for itemsp in ifItemsExists %}
+
+		<tr>
+{#			<td>{{ itemsp.get_id() }}  </td>#}
+            <td>{{ itemsp.get_productName() }}  </td>
+            <td>{{ itemsp.get_unitPrice() }}</td>
+
+
+		</tr>
+
+	</tbody>
+
+    {% endfor %}
+
+
+</table>
+{#<p>Total amount: </p>#}
+
+
+<a href="/viewreceipt">View receipt</a>
+{#    <p>"Only staff will be able to delete the records, Patient can only see what the staff input and print the receipt "</p>#}
+{#    <p>Patient can see the total amount.</p>#}
+
+{#<script>#}
+{#     var time = new Date().getTime();#}
+{#     $(document.body).bind("mousemove keypress", function(e) {#}
+{#         time = new Date().getTime();#}
+{#     });#}
+{##}
+{#     function refresh() {#}
+{#         if(new Date().getTime() - time >= 5000)#}
+{#             window.location.reload(true);#}
+{#         else#}
+{#             setTimeout(refresh, 5000);#}
+{#     }#}
+{##}
+{#     setTimeout(refresh, 5000);#}
+{#</script>#}
+
+{% endblock %}

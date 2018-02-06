@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+
+<div>
+    <TABLE BORDER="5"    WIDTH="70%"   CELLPADDING="2" CELLSPACING="2">
+    <thead>
+       <TR>
+          <TH COLSPAN="3"><BR><H3>My appointments</H3>
+          </TH>
+       </TR>
+       <TR>
+          <TH>Date</TH>
+          <TH>Time</TH>
+          <TH>Cancel Booking?</TH>
+       </TR>
+    </thead>
+
+    <tbody>
+        {%  for date in wat %}
+       <TR ALIGN="CENTER">
+           <tr>
+            <td>{{ date.get_date() }}</td>
+            <td>{{ date.get_timee() }}</td>
+            <td><form action="{{ url_for('viewappt', id=date.get_pubid()) }}" method="POST">
+                <input type="submit" value="cancel" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to cancel this appointment?');"></form></td>
+
+
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+</table>
+
+</div>
+{% endblock %}
