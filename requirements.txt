@@ -34,7 +34,7 @@ pyreadline==2.1
 python-firebase==1.2
 pytz==2017.3
 requests==2.18.4
-rsa==3.4.2
+rsa==4.1
 six==1.11.0
 swampy==2.1.7
 uritemplate==3.0.0
